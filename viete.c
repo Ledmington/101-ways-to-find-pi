@@ -17,7 +17,6 @@ int main (void) {
 	double s = 1.0f;
 
 	for(unsigned int i=0; i<max_param; i++) {
-		printf("%.20f\n", s);
 		s *= (2 / viete(i));
 	}
 
