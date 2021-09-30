@@ -1,5 +1,3 @@
-// https://it.wikipedia.org/wiki/Formula_di_Leibniz_per_pi
-
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
