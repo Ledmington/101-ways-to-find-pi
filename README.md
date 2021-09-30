@@ -8,6 +8,7 @@ This project's intent is to try to enumerate (and implement) all known ways to c
 4. `row_binary_search.c` works on the first quadrant section of the unit circle, for each row it binary-searches for the border of the circle and then adds together all those little slices to compute the area of the unit circle.
 5. `recursive_binary_search_2d.c` is an improvement of `recursive_4_splitting.c` by using binary search to find the border of the circle.
 6. `gauss_integral.c` computes the integral of `exp(-x*x)`, which tends towards `sqrt(pi)`.
+7. `continuous_fraction.c` computes the value of a continuous fraction with a depth limit.
 
 ## Contributions
 Each one of these programs is really simple and requires at most two hours of work. In that little time, some bugs can appear unnoticed so if you happen to find one, please let me know. If you want to contribute, also let me know.
