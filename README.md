@@ -13,6 +13,7 @@ This project's intent is to try to enumerate (and implement) all known ways to c
 9. `viete.c` computes the infinite product of [Viete's formula](https://it.wikipedia.org/wiki/Formula_di_Vi%C3%A8te).
 10. `leibniz.c` computes the infinite sum of [Leibniz's formula](https://it.wikipedia.org/wiki/Formula_di_Leibniz_per_pi).
 11. `bailey.c` computes the infinite sum of Bailey-Borwein-Plouffe's formula.
+12. `newton.c` computes the infinite sum of Newton's factoial's formula.
 
 ## Contributions
 Each one of these programs is really simple and requires at most two hours of work. In that little time, some bugs can appear unnoticed so if you happen to find one, please let me know. If you want to contribute, also let me know.
