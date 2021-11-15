@@ -46,14 +46,13 @@ This project's intent is to try to enumerate (and implement) all known ways to c
 ## Best Results <a name="best-results"></a>
 All results reported here have been measured on a machine with the following components.
 
-| CPU           | Intel Core i7 7700      | OpenMP available | CUDA available |
-|---------------|-------------------------|:----------------:|:--------------:|
-| CPU cores     | 4 + HyperThreading      | Not yet          | Not yet        |
-| RAM           | 16 GB                   | Not yet          | Not yet        |
-| RAM frequency | 2400 MHz                | Not yet          | Not yet        |
-| GPU           | NVIDIA GeForce GTX 1070 | Not yet          | Not yet        |
-| GPU memory    | 8 GB                    | Not yet          | Not yet        |
-| CUDA cores    | 1920                    | Not yet          | Not yet        |
+| CPU           | Intel Core i7 7700      |
+| CPU cores     | 4 + HyperThreading      |
+| RAM           | 16 GB                   |
+| RAM frequency | 2400 MHz                |
+| GPU           | NVIDIA GeForce GTX 1070 |
+| GPU memory    | 8 GB                    |
+| CUDA cores    | 1920                    |
 
 ### EPS-based methods <a name="eps-results"></a>
 
