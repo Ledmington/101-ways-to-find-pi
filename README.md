@@ -7,6 +7,7 @@ This project's intent is to try to enumerate (and implement) all known ways to c
 3. [Best Results](#best-results)
     1. [EPS-based methods](#eps-results)
     2. [Iteration-based methods](#iteration-results)
+    3. [Point-based methods](#point-results)
 4. [Contributions](#contributions)
 
 ## Summary <a name="summary"></a>
@@ -18,10 +19,10 @@ This project's intent is to try to enumerate (and implement) all known ways to c
 | Deterministic Montecarlo | EPS-based       | Not yet          | Not yet        |
 | Gauss                    | EPS-based       | Not yet          | Not yet        |
 | Leibniz                  | Iteration-based | Not yet          | Not yet        |
-| Montecarlo circle        | Iteration-based | Not yet          | Not yet        |
-| Montecarlo sphere        | Iteration-based | Not yet          | Not yet        |
+| Montecarlo circle        | Point-based     | Not yet          | Not yet        |
+| Montecarlo sphere        | Point-based     | Not yet          | Not yet        |
 | Newton                   | Iteration-based | Not yet          | Not yet        |
-| Polygon                  | Iteration-based | Not yet          | Not yet        |
+| Polygon                  | Point-based     | Not yet          | Not yet        |
 | Recursive 4-splitting    | EPS-based       | Not yet          | Not yet        |
 | Recursive binary-search  | EPS-based       | Not yet          | Not yet        |
 | Row-wise binary-search   | EPS-based       | Not yet          | Not yet        |
@@ -55,8 +56,36 @@ All results reported here have been measured on a machine with the following com
 | CUDA cores    | 1920                    |
 
 ### EPS-based methods <a name="eps-results"></a>
+All the following methods have been executed using `EPS=1e-8`. The relative error is calculated using the macro `M_PI` defined in `math.h`.
+
+| Method                   | Correct digits | Relative Error | WCT |
+|--------------------------|----------------|----------------|-----|
+| Deterministic Montecarlo |                |                |     |
+| Gauss                    |                |                |     |
+| Recursive 4-splitting    |                |                |     |
+| Recursive binary-search  |                |                |     |
+| Row-wise binary-search   |                |                |     |
 
 ### Iteration-based methods <a name="iteration-results"></a>
+All the following methods have been executed using `steps=20`. The relative error is calculated using the macro `M_PI` defined in `math.h`.
+
+| Method              | Correct digits | Relative Error | WCT |
+|---------------------|----------------|----------------|-----|
+| Bayley              |                |                |     |
+| Chebyshev           |                |                |     |
+| Continuous fraction |                |                |     |
+| Leibniz             |                |                |     |
+| Newton              |                |                |     |
+| Viete               |                |                |     |
+
+### Point-based methods <a name="point-results"></a>
+All the following methods have been executed using `points=1000`. The relative error is calculated using the macro `M_PI` defined in `math.h`.
+
+| Method              | Correct digits | Relative Error | WCT |
+|---------------------|----------------|----------------|-----|
+| Montecarlo circle   |                |                |     |
+| Montecarlo sphere   |                |                |     |
+| Polygon             |                |                |     |
 
 ## Contributions <a name="contributions"></a>
 Each one of these programs is really simple and requires at most two hours of work. In that little time, some bugs can appear unnoticed so if you happen to find one, please let me know. If you want to contribute, also let me know.
