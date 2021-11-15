@@ -1,7 +1,15 @@
 # 101 Ways To Find PI
 This project's intent is to try to enumerate (and implement) all known ways to calculate an approximated value of PI.
 
-## Summary
+# Table of contents
+1. [Summary](#summary)
+2. [List](#list)
+3. [Best Results](#best-results)
+    1. [EPS-based methods](#eps-results)
+    2. [Iteration-based methods](#iteration-results)
+4. [Contributions](#contributions)
+
+## Summary <a name="summary"></a>
 +----------------+-----------------+------------------+----------------+
 | Name           | Type            | OpenMP available | CUDA available |
 +================+=================+==================+================+
@@ -41,7 +49,7 @@ This project's intent is to try to enumerate (and implement) all known ways to c
 | Viete          | Iteration-based | Not yet          | Not yet        |
 +----------------+-----------------+------------------+----------------+
 
-## List
+## List <a name="list"></a>
 1. [`montecarlo_circle`](https://github.com/Ledmington/101-ways-to-find-pi/blob/master/montecarlo_circle.c) performs the classic Montecarlo method of calculating the ratio between the area of the unit circle and the area of its circumscribed square.
 2. [`deterministic_montecarlo`](https://github.com/Ledmington/101-ways-to-find-pi/blob/master/deterministic_montecarlo.c) performs a "deterministic" version of the Montecarlo method: instead of generating some random points, considers all points at fixed locations.
 3. [`montecarlo_sphere`](https://github.com/Ledmington/101-ways-to-find-pi/blob/master/montecarlo_sphere.c) performs the same algorithm of `montecarlo_circle`, but with a sphere inside a cube.
@@ -53,9 +61,32 @@ This project's intent is to try to enumerate (and implement) all known ways to c
 9. [`viete`](https://github.com/Ledmington/101-ways-to-find-pi/blob/master/viete.c) computes the infinite product of [Viete's formula](https://it.wikipedia.org/wiki/Formula_di_Vi%C3%A8te).
 10. [`leibniz`](https://github.com/Ledmington/101-ways-to-find-pi/blob/master/leibniz.c) computes the infinite sum of [Leibniz's formula](https://it.wikipedia.org/wiki/Formula_di_Leibniz_per_pi).
 11. [`bailey`](https://github.com/Ledmington/101-ways-to-find-pi/blob/master/bailey.c) computes the infinite sum of Bailey-Borwein-Plouffe's formula.
-12. [`newton`](https://github.com/Ledmington/101-ways-to-find-pi/blob/master/newton.c) computes the infinite sum of Newton's factoial's formula.
+12. [`newton`](https://github.com/Ledmington/101-ways-to-find-pi/blob/master/newton.c) computes the infinite sum of Newton's factorial's formula.
 13. [`chebyshev`](https://github.com/Ledmington/101-ways-to-find-pi/blob/master/chebyshev.c) computes the infinite sum of Chebyshev's formula.
 14. [`polygon`](https://github.com/Ledmington/101-ways-to-find-pi/blob/master/polygon.c) computes the area of the unit circle approximating it as a polygon.
 
-## Contributions
+## Best Results <a name="best-results"></a>
+All results reported here have been measured on a machine with the following components.
+
++---------------+-------------------------+
+| CPU           | Intel Core i7 7700      |
++---------------+-------------------------+
+| CPU cores     | 4 + HyperThreading      |
++---------------+-------------------------+
+| RAM           | 16 GB                   |
++---------------+-------------------------+
+| RAM frequency | 2400 MHz                |
++---------------+-------------------------+
+| GPU           | NVIDIA GeForce GTX 1070 |
++---------------+-------------------------+
+| GPU memory    | 8 GB                    |
++---------------+-------------------------+
+| CUDA cores    | 1920                    |
++---------------+-------------------------+
+
+### EPS-based methods <a name="eps-results"></a>
+
+### Iteration-based methods <a name="iteration-results"></a>
+
+## Contributions <a name="contributions"></a>
 Each one of these programs is really simple and requires at most two hours of work. In that little time, some bugs can appear unnoticed so if you happen to find one, please let me know. If you want to contribute, also let me know.
