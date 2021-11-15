@@ -10,44 +10,22 @@ This project's intent is to try to enumerate (and implement) all known ways to c
 4. [Contributions](#contributions)
 
 ## Summary <a name="summary"></a>
-+----------------+-----------------+------------------+----------------+
-| Name           | Type            | OpenMP available | CUDA available |
-+================+=================+==================+================+
-| Bayley         | Iteration-based | Not yet          | Not yet        |
-+----------------+-----------------+------------------+----------------+
-| Chebyshev      | Iteration-based | Not yet          | Not yet        |
-+----------------+-----------------+------------------+----------------+
-| Continuos      |                 |                  |                |
-| fraction       | Iteration-based | Not yet          | Not yet        |
-+----------------+-----------------+------------------+----------------+
-| Deterministic  |                 |                  |                |
-| Montecarlo     | EPS-based       | Not yet          | Not yet        |
-+----------------+-----------------+------------------+----------------+
-| Gauss          | EPS-based       | Not yet          | Not yet        |
-+----------------+-----------------+------------------+----------------+
-| Leibniz        | Iteration-based | Not yet          | Not yet        |
-+----------------+-----------------+------------------+----------------+
-| Montecarlo     |                 |                  |                |
-| circle         | Iteration-based | Not yet          | Not yet        |
-+----------------+-----------------+------------------+----------------+
-| Montecarlo     |                 |                  |                |
-| sphere         | Iteration-based | Not yet          | Not yet        |
-+----------------+-----------------+------------------+----------------+
-| Newton         | Iteration-based | Not yet          | Not yet        |
-+----------------+-----------------+------------------+----------------+
-| Polygon        | Iteration-based | Not yet          | Not yet        |
-+----------------+-----------------+------------------+----------------+
-| Recursive      |                 |                  |                |
-| 4-splitting    | EPS-based       | Not yet          | Not yet        |
-+----------------+-----------------+------------------+----------------+
-| Recursive      |                 |                  |                |
-| binary-search  | EPS-based       | Not yet          | Not yet        |
-+----------------+-----------------+------------------+----------------+
-| Row-wise       |                 |                  |                |
-| binary-search  | EPS-based       | Not yet          | Not yet        |
-+----------------+-----------------+------------------+----------------+
-| Viete          | Iteration-based | Not yet          | Not yet        |
-+----------------+-----------------+------------------+----------------+
+|           Name           |       Type      | OpenMP available | CUDA available |
+|:------------------------:|:---------------:|:----------------:|:--------------:|
+| Bayley                   | Iteration-based | Not yet          | Not yet        |
+| Chebyshev                | Iteration-based | Not yet          | Not yet        |
+| Continuos fraction       | Iteration-based | Not yet          | Not yet        |
+| Deterministic Montecarlo | EPS-based       | Not yet          | Not yet        |
+| Gauss                    | EPS-based       | Not yet          | Not yet        |
+| Leibniz                  | Iteration-based | Not yet          | Not yet        |
+| Montecarlo circle        | Iteration-based | Not yet          | Not yet        |
+| Montecarlo sphere        | Iteration-based | Not yet          | Not yet        |
+| Newton                   | Iteration-based | Not yet          | Not yet        |
+| Polygon                  | Iteration-based | Not yet          | Not yet        |
+| Recursive 4-splitting    | EPS-based       | Not yet          | Not yet        |
+| Recursive binary-search  | EPS-based       | Not yet          | Not yet        |
+| Row-wise binary-search   | EPS-based       | Not yet          | Not yet        |
+| Viete                    | Iteration-based | Not yet          | Not yet        |
 
 ## List <a name="list"></a>
 1. [`montecarlo_circle`](https://github.com/Ledmington/101-ways-to-find-pi/blob/master/montecarlo_circle.c) performs the classic Montecarlo method of calculating the ratio between the area of the unit circle and the area of its circumscribed square.
