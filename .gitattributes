@@ -1,0 +1,13 @@
+* text=auto eol=lf
+*.[cC][mM][dD] text eol=crlf
+*.[bB][aA][tT] text eol=crlf
+*.[pP][sS]1 text eol=crlf
+
+# Source files
+*.c text
+
+# Binary files
+*.o binary
+
+# Text files
+*.md text
