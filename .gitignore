@@ -1,7 +1,5 @@
 *.exe
 *.o
-bin/
-CMakeCache.txt
-cmake_install.cmake
-CMakeFiles/
 .vscode/
+bin/
+build/
