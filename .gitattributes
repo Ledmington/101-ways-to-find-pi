@@ -5,6 +5,8 @@
 
 # Source files
 *.c text
+*.cpp
+*.hpp
 
 # Binary files
 *.o binary
