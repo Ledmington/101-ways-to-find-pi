@@ -1,5 +1,5 @@
 # 101 Ways To Find PI
-This project's intent is to try to enumerate (and implement) all known ways to calculate an approximated value of PI.
+The goal of this project is to enumerate (and implement) all known ways to calculate an approximated value of PI.
 
 # Table of contents
 1. [Summary](#summary)
@@ -11,26 +11,28 @@ This project's intent is to try to enumerate (and implement) all known ways to c
 4. [Contributions](#contributions)
 
 ## Summary <a name="summary"></a>
-|           Name           |       Type      | OpenMP available | CUDA available |
-|:------------------------:|:---------------:|:----------------:|:--------------:|
-| Bayley                   | Iteration-based | Not yet          | Not yet        |
-| Chebyshev                | Iteration-based | Not yet          | Not yet        |
-| Continuos fraction       | Iteration-based | Not yet          | Not yet        |
-| Deterministic Montecarlo | EPS-based       | Not yet          | Not yet        |
-| Gauss                    | EPS-based       | Not yet          | Not yet        |
-| Leibniz                  | Iteration-based | Not yet          | Not yet        |
-| Montecarlo circle        | Point-based     | Not yet          | Not yet        |
-| Montecarlo sphere        | Point-based     | Not yet          | Not yet        |
-| Newton                   | Iteration-based | Not yet          | Not yet        |
-| Polygon                  | Point-based     | Not yet          | Not yet        |
-| Recursive 4-splitting    | EPS-based       | Not yet          | Not yet        |
-| Recursive binary-search  | EPS-based       | Not yet          | Not yet        |
-| Row-wise binary-search   | EPS-based       | Not yet          | Not yet        |
-| Viete                    | Iteration-based | Not yet          | Not yet        |
+Despite the name, there are only 14 algorithms currently implemented. Here they are in alphabetical order.
+
+|           Name           |       Type      |
+|:------------------------:|:---------------:|
+| Bayley                   | Iteration-based |
+| Chebyshev                | Iteration-based |
+| Continuos fraction       | Iteration-based |
+| Gauss                    | EPS-based       |
+| Grid                     | EPS-based       |
+| Leibniz                  | Iteration-based |
+| Montecarlo circle        | Point-based     |
+| Montecarlo sphere        | Point-based     |
+| Newton                   | Iteration-based |
+| Polygon                  | Point-based     |
+| Recursive 4-splitting    | EPS-based       |
+| Recursive binary-search  | EPS-based       |
+| Row-wise binary-search   | EPS-based       |
+| Viete                    | Iteration-based |
 
 ## List <a name="list"></a>
 1. [`montecarlo_circle`](https://github.com/Ledmington/101-ways-to-find-pi/blob/master/montecarlo_circle.c) performs the classic Montecarlo method of calculating the ratio between the area of the unit circle and the area of its circumscribed square.
-2. [`deterministic_montecarlo`](https://github.com/Ledmington/101-ways-to-find-pi/blob/master/deterministic_montecarlo.c) performs a "deterministic" version of the Montecarlo method: instead of generating some random points, considers all points at fixed locations.
+2. [`grid`](https://github.com/Ledmington/101-ways-to-find-pi/blob/master/grid.c) performs a "deterministic" version of the Montecarlo method: instead of generating some random points, considers all points at fixed locations.
 3. [`montecarlo_sphere`](https://github.com/Ledmington/101-ways-to-find-pi/blob/master/montecarlo_sphere.c) performs the same algorithm of `montecarlo_circle`, but with a sphere inside a cube.
 4. [`recursive_4_splitting`](https://github.com/Ledmington/101-ways-to-find-pi/blob/master/recursive_4_splitting.c) performs a recursive call (each time splitting the area 4 times) to find the area of the quarter-circle in the first quadrant.
 5. [`row_binary_search`](https://github.com/Ledmington/101-ways-to-find-pi/blob/master/row_binary_search.c) works on the first quadrant section of the unit circle, for each row it binary-searches for the border of the circle and then adds together all those little slices to compute the area of the unit circle.
@@ -45,15 +47,6 @@ This project's intent is to try to enumerate (and implement) all known ways to c
 14. [`polygon`](https://github.com/Ledmington/101-ways-to-find-pi/blob/master/polygon.c) computes the area of the unit circle approximating it as a polygon.
 
 ## Best Results <a name="best-results"></a>
-All results reported here have been measured on a machine with the following components.
-
-| CPU           | Intel Core i7 7700      |
-| CPU cores     | 4 + HyperThreading      |
-| RAM           | 16 GB                   |
-| RAM frequency | 2400 MHz                |
-| GPU           | NVIDIA GeForce GTX 1070 |
-| GPU memory    | 8 GB                    |
-| CUDA cores    | 1920                    |
 
 ### EPS-based methods <a name="eps-results"></a>
 All the following methods have been executed using `EPS=1e-8`. The relative error is calculated using the macro `M_PI` defined in `math.h`.
@@ -88,4 +81,4 @@ All the following methods have been executed using `points=1000`. The relative e
 | Polygon             |                |                |     |
 
 ## Contributions <a name="contributions"></a>
-Each one of these programs is really simple and requires at most two hours of work. In that little time, some bugs can appear unnoticed so if you happen to find one, please let me know. If you want to contribute, also let me know.
+Each one of these programs is really simple and requires at most two hours of work. In that little time, some bugs can appear unnoticed so if you happen to find one, please let me know. If you want to contribute, feel free to do so.
