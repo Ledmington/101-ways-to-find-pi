@@ -1,24 +1,21 @@
-#include "point_based.hpp"
+#include <random>
+
 #include "utils.hpp"
 
-class MontecarloCircle : public PointBasedAlgorithm {
-public:
-  MontecarloCircle()
-      : PointBasedAlgorithm("Montecarlo Circle", "The classic 2D Montecarlo.") {
-  }
+double montecarlo_circle(const size_t num_points) {
+	std::random_device dev;
+	std::mt19937 rnd{dev()};
+	std::uniform_real_distribution<double> dist{-1.0, 1.0};
 
-  double run(const unsigned int num_points) {
-    srand(time(NULL));
+	size_t inside{0};
 
-    unsigned int inside = 0;
+	for (size_t i{0}; i < num_points; i++) {
+		double x = dist(rnd);
+		double y = dist(rnd);
+		if (x * x + y * y <= 1.0) {
+			inside++;
+		}
+	}
 
-    for (unsigned int i = 0; i < num_points; i++) {
-      double x = randab(-1.0f, 1.0f);
-      double y = randab(-1.0f, 1.0f);
-      if (x * x + y * y <= 1.0f)
-        inside++;
-    }
-
-    return 4 * (double)inside / (double)num_points;
-  }
-};
+	return 4.0 * static_cast<double>(inside) / static_cast<double>(num_points);
+}

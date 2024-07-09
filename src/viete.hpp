@@ -1,28 +1,26 @@
-// https://it.wikipedia.org/wiki/Formula_di_Vi%C3%A8te
-
-#include "iteration_based.hpp"
 #include <cmath>
 
-class Viete : public IterationBasedAlgorithm {
-private:
-  double viete(unsigned int param) {
-    if (param == 0)
-      return 1.0f;
-    if (param == 1)
-      return sqrt(2.0f);
-    return sqrt(2 + viete(param - 1));
-  }
+namespace viete {
 
-public:
-  Viete() : IterationBasedAlgorithm("Viete", "TODO") {}
+// https://it.wikipedia.org/wiki/Formula_di_Vi%C3%A8te
+double denominator(const size_t n) {
+	if (n == 0) {
+		return 1.0;
+	}
+	if (n == 1) {
+		return std::sqrt(2.0);
+	}
+	return std::sqrt(2.0 + denominator(n - 1));
+}
 
-  double run(const unsigned int max_iterations) {
-    double s = 1.0f;
+double viete(const size_t max_iterations) {
+	double s{1.0};
 
-    for (unsigned int i = 0; i < max_iterations; i++) {
-      s *= (2 / viete(i));
-    }
+	for (size_t i{0}; i < max_iterations; i++) {
+		s *= (2.0 / denominator(i));
+	}
 
-    return s;
-  }
-};
+	return s;
+}
+
+}  // namespace viete

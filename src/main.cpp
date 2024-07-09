@@ -1,8 +1,14 @@
+#include <array>
+#include <functional>
+#include <iomanip>
+#include <iostream>
+#include <map>
+
 #include "bayley.hpp"
 #include "chebyshev.hpp"
 #include "continuous_fraction.hpp"
-#include "deterministic_montecarlo.hpp"
 #include "gauss_integral.hpp"
+#include "grid.hpp"
 #include "leibniz.hpp"
 #include "montecarlo_circle.hpp"
 #include "montecarlo_sphere.hpp"
@@ -12,72 +18,52 @@
 #include "recursive_binary_search.hpp"
 #include "row_binary_search.hpp"
 #include "viete.hpp"
-#include <iostream>
-
-#define KEY_UP 72
-#define KEY_DOWN 80
-#define KEY_LEFT 75
-#define KEY_RIGHT 77
-
-#define min(a, b) (a) < (b) ? (a) : (b)
-#define max(a, b) (a) > (b) ? (a) : (b)
-
-void cls() {
-  // CSI[2J clears screen, CSI[H moves the cursor to top-left corner
-  std::cout << "\x1B[2J\x1B[H";
-}
 
 int main(void) {
+	std::map<std::string, std::function<double(size_t)>> iteration_based{
+		{"Bayley", bayley},
+		{"Chebyshev", chebyshev},
+		{"ContinuousFraction", continuous_fraction::continuous_fraction},
+		{"Leibniz", leibniz},
+		{"Newton", newton},
+		{"Viete", viete::viete}};
+	std::map<std::string, std::function<double(double)>> precision_based{
+		{"Grid", grid::grid},
+		{"GaussianIntegral", gaussian_integral::gaussian_integral},
+		{"Recursive4Splitting", recursive_4_splitting::recursive_4_splitting},
+		{"RecursiveBinarySearch",
+		 recursive_binary_search::recursive_binary_search},
+		{"RowBinarySearch", row_binary_search::row_binary_search}};
+	std::map<std::string, std::function<double(size_t)>> point_based{
+		{"MontecarloCircle", montecarlo_circle},
+		{"MontecarloSphere", montecarlo_sphere},
+		{"Polygon", polygon}};
 
-  setvbuf(stdin, NULL, _IONBF, 0);
+	std::cout << " ### Iteration-based algorithms ### " << std::endl;
+	for (auto const& [name, algo] : iteration_based) {
+		std::cout << name << '\n'
+				  << "Value: " << std::setprecision(20)
+				  << algo(static_cast<size_t>(100)) << '\n'
+				  << std::endl;
+	}
 
-  Algorithm algos[] = {MontecarloCircle(),
-                       MontecarloSphere(),
-                       Newton(),
-                       Polygon(),
-                       Bayley(),
-                       Chebyshev(),
-                       ContinuousFraction(),
-                       DeterministicMontecarlo(),
-                       GaussianIntegral(),
-                       Leibniz(),
-                       Recursive4Splitting(),
-                       RecursiveBinarySearch(),
-                       RowBinarySearch(),
-                       Viete()};
-  const unsigned int len = sizeof(algos) / sizeof(algos[0]);
+	std::cout << std::endl;
 
-  unsigned int selected = 0;
+	std::cout << " ### Precision-based algorithms ### " << std::endl;
+	for (auto const& [name, algo] : precision_based) {
+		std::cout << name << '\n'
+				  << "Value: " << std::setprecision(20) << algo(1e-4) << '\n'
+				  << std::endl;
+	}
 
-  int c = 0;
-  while (1) {
-    c = 0;
+	std::cout << std::endl;
 
-    for (unsigned int i = 0; i < len; i++) {
-      if (i == selected) {
-        std::cout << " -> " << i + 1 << ") " << algos[i].getName() << std::endl;
-        std::cout << algos[i].getDescription() << std::endl;
-        std::cout << algos[i].getType() << std::endl;
-        std::cout << "---" << std::endl;
-      } else {
-        std::cout << "    " << i + 1 << ") " << algos[i].getName() << std::endl;
-      }
-    }
+	std::cout << " ### Point-based algorithms ### " << std::endl;
+	for (auto const& [name, algo] : point_based) {
+		std::cout << name << '\n'
+				  << "Value: " << std::setprecision(20) << algo(100000) << '\n'
+				  << std::endl;
+	}
 
-    switch ((c = getchar())) {
-    case KEY_UP:
-      selected = max(0, selected - 1);
-      break;
-    case KEY_DOWN:
-      selected = min(len, selected + 1);
-      break;
-    default:
-      std::cout << std::endl << "null" << std::endl; // not arrow
-      break;
-    }
-
-    cls();
-  }
-
-  return 0;
+	return 0;
 }
